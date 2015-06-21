@@ -60,16 +60,6 @@ We can see from anova test below that in addition to am, 5 other variables, name
 The test also shows that the variables qsec, drat, gear and carb is not the best predictor.
 
 
-```r
-fita <- lm(mpg ~ am, data = mtcars)
-fitb <- update(fita, mpg ~ am + cyl + disp + hp + wt + vs)
-fitc <- update(fitb, mpg ~ am + cyl + disp + hp + wt + vs + qsec )
-fitd <- update(fitc, mpg ~ am + cyl + disp + hp + wt + vs + qsec + drat )
-fite <- update(fitd, mpg ~ am + cyl + disp + hp + wt + vs + qsec + drat + gear )
-fitf <- update(fite, mpg ~ am + cyl + disp + hp + wt + vs + qsec + drat + gear + carb)
-anova(fita, fitb, fitc, fitd, fite, fitf)
-```
-
 ```
 ## Analysis of Variance Table
 ## 

@@ -56,7 +56,7 @@ Next, we will analyze the relationships between the variables to predict mpg wit
 We can see from anova test below that in addition to am, 5 other variables, namely cyl, disp, hp, wt and vs is a strong predictor to mpg outcome. The anova test shows significant result when taking into account of these 6 variables. 
 The test also shows that the variables qsec, drat, gear and carb is not the best predictor.
 
-```{r echo=TRUE, message=FALSE, warning = FALSE}
+```{r echo=FALSE, message=FALSE, warning = FALSE}
 fita <- lm(mpg ~ am, data = mtcars)
 fitb <- update(fita, mpg ~ am + cyl + disp + hp + wt + vs)
 fitc <- update(fitb, mpg ~ am + cyl + disp + hp + wt + vs + qsec )
