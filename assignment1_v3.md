@@ -56,6 +56,10 @@ Next, we will analyze the relationships between the variables to predict mpg wit
 
 #### Analysis 2: Is transmission type the only variable that influences mpg? What are the car variables which have strong correlation with mpg?
 
+We can see from anova test below that in addition to am, 5 other variables, namely cyl, disp, hp, wt and vs is a strong predictor to mpg outcome. The anova test shows significant result when taking into account of these 6 variables. 
+The test also shows that the variables qsec, drat, gear and carb is not the best predictor.
+
+
 ```r
 fita <- lm(mpg ~ am, data = mtcars)
 fitb <- update(fita, mpg ~ am + cyl + disp + hp + wt + vs)
@@ -63,7 +67,6 @@ fitc <- update(fitb, mpg ~ am + cyl + disp + hp + wt + vs + qsec )
 fitd <- update(fitc, mpg ~ am + cyl + disp + hp + wt + vs + qsec + drat )
 fite <- update(fitd, mpg ~ am + cyl + disp + hp + wt + vs + qsec + drat + gear )
 fitf <- update(fite, mpg ~ am + cyl + disp + hp + wt + vs + qsec + drat + gear + carb)
-
 anova(fita, fitb, fitc, fitd, fite, fitf)
 ```
 
@@ -86,11 +89,10 @@ anova(fita, fitb, fitc, fitd, fite, fitf)
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
-We can see from anova test that in addition to am, 5 other variables, namely cyl, disp, hp, wt and vs is a strong predictor to mpg outcome. The anova test shows significant result when taking into account of these 6 variables. 
-The test also shows that the variables qsec, drat, gear and carb is not the best predictor.
 
 #### Analysis 3: Regression Analysis
 Based on analysis 2, we can now confidently specify the best linier model to predict mpg outcome, and it is based not only on transmission type but also 5 other variables. Refer to figure 3 in appendix for its diagnistics and residual plot.
+
 
 ```r
 bestliniermodel <- lm(mpg ~ am + cyl + disp + hp + wt + vs, data=mtcars)
